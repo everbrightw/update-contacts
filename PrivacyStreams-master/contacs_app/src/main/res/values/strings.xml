@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Contacs_app</string>
+    <string name="GET_ALL_CONTACTS">GET ALL CONTACTS</string>
+</resources>

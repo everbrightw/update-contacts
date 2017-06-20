@@ -1,0 +1,1 @@
+include ':app', ':privacystreams-core', ':privacystreams-third_parties', ':doc_gen', ':contact_test_app', ':contacts_app', ':contacs_app'

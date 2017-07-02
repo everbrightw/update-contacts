@@ -82,7 +82,7 @@ public class Calender {
 
     public void addEvents(ContentResolver cr, Context context,int year, int month, int day,
                      int time, int endtime, String event_title) {
-        long calID = 4;
+        long calID = 3;
         long startMillis = 0;
         long endMillis = 0;
 
@@ -115,30 +115,28 @@ public class Calender {
 
 // get the event ID that is the last element in the Uri
         long eventID = Long.parseLong(uri.getLastPathSegment());
-//
-// ... do something with event ID
-//
-//
+
     }
 
-    //used for getting the calendar event's id
-    public String getCalendareventID( String original_title) throws PSException {
+
+    public int getCalendareventID( String original_title) throws PSException {
         String entryID =
-                uqi.getData(CalendarEvent.getAll(), purpose).filter("title", original_title).getItemAt(0).getField("id");
-        return entryID;
+                uqi.getData(CalendarEvent.getAll(), purpose).
+                        filter("title", original_title).getItemAt(0).getField("id");
+        int result = Integer.parseInt(entryID);
+        return result;
 
     }
 
-    public void updateEvents(ContentResolver cr, String new_eventtitle){
+    public void updateEvents(ContentResolver cr, String newEvent_title, int eventID){
         String DEBUG_TAG = "MyActivity";
 
-        long eventID = 1503;//test id ;
-
+        //long eventID = 1503;//test id ;
 
         ContentValues values = new ContentValues();
         Uri updateUri = null;
 
-        values.put(Events.TITLE, new_eventtitle);//set the title
+        values.put(Events.TITLE, newEvent_title);//set the title
         /*
             values.put(Events.DTSTART, startMillis);
             values.put(Events.DTEND, endMillis);
@@ -153,25 +151,5 @@ public class Calender {
         Log.i(DEBUG_TAG, "Rows updated: " + rows);
 
     }
-
-
-
-
-
-    public static Intent UpdateCalendarEntry() {
-        long eventID = 1503;
-
-        Uri uri = ContentUris.withAppendedId(Events.CONTENT_URI, eventID);
-        Intent intent = new Intent(Intent.ACTION_EDIT)
-                .setData(uri)
-                .putExtra(Events.TITLE,"new_title");
-        return intent;
-
-    }
-
-
-
-
-
 
 }

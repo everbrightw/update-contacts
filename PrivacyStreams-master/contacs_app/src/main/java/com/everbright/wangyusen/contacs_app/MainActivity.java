@@ -53,11 +53,13 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = (TextView) findViewById(R.id.textView);
 
         Calender a = new Calender(getApplicationContext());
-        textView.setText(a.getCalendareventID("omg"));
+        textView.setText(a.getCalendareventID("Kickboxing"));
         //  a.UpdateCalendarEntry(getContentResolver());
         //startActivity(Calender.addCalendar_event(2017,7,1,730,830,"wow"));
 
-        startActivity(Calender.UpdateCalendarEntry());
+        //startActivity(Calender.UpdateCalendarEntry());
+        //a.addEvents(getContentResolver(),getApplicationContext(), 2017, 1,6, 730,830,"wys");
+        a.updateEvents(getContentResolver(), "woooo");
 
         }
 

@@ -137,8 +137,17 @@ public class Calender {
 
         ContentValues values = new ContentValues();
         Uri updateUri = null;
-// The new title for the event
-        values.put(Events.TITLE, new_eventtitle);
+
+        values.put(Events.TITLE, new_eventtitle);//set the title
+        /*
+            values.put(Events.DTSTART, startMillis);
+            values.put(Events.DTEND, endMillis);
+            values.put(Events.TITLE, event_title);
+            values.put(Events.DESCRIPTION, "Group workout");
+            values.put(Events.CALENDAR_ID, calID);
+            values.put(Events.EVENT_TIMEZONE, "America/Los_Angeles");
+        */
+
         updateUri = ContentUris.withAppendedId(Events.CONTENT_URI, eventID);
         int rows = cr.update(updateUri, values, null, null);
         Log.i(DEBUG_TAG, "Rows updated: " + rows);
